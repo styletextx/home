@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleText X - Handwriting Tool</title>
+    <link rel="icon" type="image/png" href="1000070326-photoaidcom-cropped.png">
+
+    
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2ab5a4, #2ab5a4);
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Full-Screen Menu */
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: 0.5s;
+            z-index: 1000;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .menu .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #2ab5a4, #2ab5a4 );
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px;
+            background: linear-gradient(135deg, #2ab5a4, #2ab5a4);
+            color: white;
+        }
+
+        /* Tool Section */
+        .tool {
+            padding: 50px;
+            background: #fff;
+            color: #333;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Why Use Section */
+        .why-use {
+            padding: 50px;
+            background: linear-gradient(135deg, #1ba6aa, #1a9bac);
+        }
+
+       
+
+
+
+
+
+
+
+
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        select, input, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ffffff;
+            color: black;
+            min-height: 100px;
+            border-radius: 10px;
+            position: relative;
+            border: 1px solid #ddd;
+        }
+        .output-buttons {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            display: flex;
+            gap: 5px;
+        }
+        .output-buttons button {
+            background: white;
+            color: black;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .output-buttons button i {
+            font-size: 16px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .about-section {
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .about-section img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s;
+        }
+        .about-section img:hover {
+            transform: rotateY(360deg);
+        }
+        .about-section h2 {
+            margin: 20px 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+
+
+
+/* Brand Logo Styling */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between logo and text */
+}
+
+.brand-logo img {
+    height: 40px;
+}
+
+.brand-logo span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+    </style>
+
+
+
+</head>
+<body>
+
+
+    <div id="preloader" style="position:fixed;width:100%;height:100%;background:#121212;display:flex;justify-content:center;align-items:center;z-index:9999"><div style="text-align:center"><div class="loader" style="width:50px;height:50px;border:5px solid rgba(255,255,255,0.3);border-top:5px solid #00f7ff;border-radius:50%;animation:spin 1s linear infinite"></div><h2 style="color:white;margin-top:15px;font-family:sans-serif;text-shadow:0 0 10px #00f7ff">StyleText X</h2></div></div><script>window.addEventListener("load",()=>{setTimeout(()=>{document.getElementById("preloader").style.display="none"},2000)});</script><style>@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}</style>
+
+
+
+    <!-- Full-Screen Menu -->
+    <div class="menu" id="menu">
+        <span class="close" onclick="toggleMenu()">&times;</span>
+        <a href="index.html">Home</a>
+        <a href="service.html">Services</a>
+        <a href="mainblogpage.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Navbar -->
+    
+    
+    <nav class="navbar">
+        <div class="brand-logo">
+            <img src="1000070326-photoaidcom-cropped.png" alt="Brand Logo">
+           <i><span>StyleText <b>X</b></span></i>
+        </div>
+        <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
+    </nav>
+    
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-container">
+            <img src="https://cdn.pixabay.com/animation/2022/08/15/08/47/08-47-41-408_512.gif" alt="Hero Image">
+            <h1>Welcome to Our Platform 🚀</h1>
+            <p>Experience the next level of creativity and customization.</p>
+            <button>Get Started</button>
+        </div>
+    </div>
+    
+    <style>
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background: linear-gradient(135deg, white,white;
+            padding: 50px 10%;
+        }
+    
+        .hero-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+    
+        .hero-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .hero-container img:hover {
+            transform: scale(1.1);
+        }
+    
+        .hero-container h1 {
+            font-size: 28px;
+            margin: 15px 0;
+            color: #333;
+        }
+    
+        .hero-container p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+    
+        .hero-container button {
+            background: #FF6B6B;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+    
+        .hero-container button:hover {
+            background: #D9534F;
+            transform: scale(1.05);
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 30px 5%;
+            }
+    
+            .hero-container img {
+                width: 120px;
+                height: 120px;
+            }
+    
+            .hero-container h1 {
+                font-size: 22px;
+            }
+    
+            .hero-container p {
+                font-size: 14px;
+            }
+    
+            .hero-container button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+    
+    <!-- Tool Section -->
+   
+
+
+
+
+
+
+    <div class="container">
+        <h2>🎨 Advanced Text Customizer</h2>
+        <textarea id="textInput" placeholder="Type your text here..."></textarea>
+        <div class="controls">
+            <select id="fontSelect">
+                <option value="Arial">Arial</option>
+                <option value="Dancing Script">Dancing Script</option>
+                <option value="Great Vibes">Great Vibes</option>
+                <option value="Indie Flower">Indie Flower</option>
+                <option value="Lobster">Lobster</option>
+                <option value="Pacifico">Pacifico</option>
+                <option value="Permanent Marker">Permanent Marker</option>
+                <option value="Shadows Into Light">Shadows Into Light</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Courgette">Courgette</option>
+                <option value="Handlee">Handlee</option>
+                <option value="Marck Script">Marck Script</option>
+                <option value="Press Start 2P">Press Start 2P</option>
+                <option value="Sacramento">Sacramento</option>
+                <option value="Satisfy">Satisfy</option>
+                <option value="Yellowtail">Yellowtail</option>
+                <option value="Amatic SC">Amatic SC</option>
+                <option value="Bangers">Bangers</option>
+                <option value="Caveat">Caveat</option>
+                <option value="Chewy">Chewy</option>
+                <option value="Fredericka the Great">Fredericka the Great</option>
+                <option value="Gloria Hallelujah">Gloria Hallelujah</option>
+                <option value="Kaushan Script">Kaushan Script</option>
+                <option value="Patrick Hand">Patrick Hand</option>
+            </select>
+            <input type="color" id="colorPicker" value="#000000">
+            <input type="number" id="fontSize" value="20" min="10" max="100">
+            <button onclick="toggleBold()">Bold</button>
+            <button onclick="toggleItalic()">Italic</button>
+            <button onclick="toggleUnderline()">Underline</button>
+        </div>
+        <div class="output" id="outputText">Your styled text will appear here...
+            <div class="output-buttons">
+                <button onclick="copyText()"><i class="fas fa-copy"></i></button>
+                <button onclick="shareText()"><i class="fas fa-share-alt"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateText() {
+            outputText.innerHTML = textInput.value;
+            outputText.style.fontFamily = fontSelect.value;
+            outputText.style.color = colorPicker.value;
+            outputText.style.fontSize = fontSize.value + "px";
+        }
+        function toggleBold() {
+            outputText.style.fontWeight = outputText.style.fontWeight === "bold" ? "normal" : "bold";
+        }
+        function toggleItalic() {
+            outputText.style.fontStyle = outputText.style.fontStyle === "italic" ? "normal" : "italic";
+        }
+        function toggleUnderline() {
+            outputText.style.textDecoration = outputText.style.textDecoration === "underline" ? "none" : "underline";
+        }
+        function copyText() {
+            navigator.clipboard.writeText(outputText.innerText);
+            alert("Text copied to clipboard!");
+        }
+        function shareText() {
+            if (navigator.share) {
+                navigator.share({ text: outputText.innerText })
+                    .then(() => console.log("Shared successfully!"))
+                    .catch((error) => console.log("Error sharing:", error));
+            } else {
+                alert("Sharing not supported on this browser.");
+            }
+        }
+        textInput.addEventListener("input", updateText);
+        fontSelect.addEventListener("change", updateText);
+        colorPicker.addEventListener("input", updateText);
+        fontSize.addEventListener("input", updateText);
+    </script>
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+    <!-- Why Use Section -->
+    <section class="why-use">
+        <h2>Why Choose StyleText X?</h2>
+        <p>Fast, efficient, and 100% free handwriting converter tool for everyone.</p>
+    </section>
+
+
+
+<br>
+
+
+
+
+
+
+   <center>
+    <div class="about-section">
+        <img src="1000070326-photoaidcom-cropped.png" alt="Logo">
+        <h2>About Advanced Text Customizer</h2>
+        <p>
+            The Advanced Text Customizer is a powerful tool that allows users to customize text effortlessly. 
+            With over 25 handwriting styles, color selections, font sizes, and formatting options, 
+            you can transform ordinary text into visually appealing designs. Built for ease of use and 
+            an exceptional user experience, this tool is perfect for designers, writers, and creatives alike.
+        </p>
+    </div>
+   </center>
+<br>
+
+
+
+
+
+
+<div class="blog-section">
+    <h2>📢 Latest Blogs & News</h2>
+    <div class="blog-container">
+        <!-- Blog Card 1 -->
+        <div class="blog-card">
+            <div class="blog-image">
+                <img src="https://media4.giphy.com/media/iBlgTxSS20NLdCxvDW/200w.gif?cid=6c09b952c3psfwwi70rssvwixdd3iwkc10rcgdfdalfmqqnm&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Blog Image">
+                <span class="blog-label">Technology</span>
+            </div>
+            <div class="blog-content">
+                <h3>🚀 New Features in Our Tool</h3>
+                <p>Explore the latest features we’ve added to enhance your experience.</p>
+                <div class="blog-info">
+                    <span>📅 Feb 15, 2025</span>
+                    <span>⏳ 20 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <!-- Blog Card 2 -->
+        <div class="blog-card">
+            <div class="blog-image">
+                <img src="images (7).jpeg" alt="Blog Image">
+                <span class="blog-label">Coding</span>
+            </div>
+            <div class="blog-content">
+                <h3>💡 Why Use Our Tool?</h3>
+                <p>Discover why thousands of users are choosing our platform.</p>
+                <div class="blog-info">
+                    <span>📅 Feb 10, 2025</span>
+                    <span>⏳ 15 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <!-- Blog Card 3 -->
+        <div class="blog-card">
+            <div class="blog-image">
+                <img src="images (7).jpeg" alt="Blog Image">
+                <span class="blog-label">Design</span>
+            </div>
+            <div class="blog-content">
+                <h3>🎨 Best Practices for Customization</h3>
+                <p>Learn how to get the most out of our tool’s customization options.</p>
+                <div class="blog-info">
+                    <span>📅 Feb 5, 2025</span>
+                    <span>⏳ 10 min read</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .blog-section {
+        text-align: center;
+        padding: 60px 5%;
+        background: #2ab5a4;
+        color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .blog-section h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .blog-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .blog-card {
+        background: skyblue;
+        color: black;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    .blog-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .blog-image {
+        position: relative;
+        overflow: hidden;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+
+    .blog-image img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .blog-card:hover .blog-image img {
+        transform: scale(1.1);
+    }
+
+    .blog-label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: skyblue;
+        color: black;
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .blog-content {
+        padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .blog-content h3 {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .blog-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #666;
+        margin-top: 10px;
+    }
+
+    .read-more {
+        display: block;
+        text-decoration: none;
+        color: black;
+        background: white;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        font-weight: bold;
+        transition: background 0.3s;
+        margin-top: 10px;
+    }
+
+    .read-more:hover {
+        background: grey;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .blog-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<div class="feedback-section">
+    <div class="feedback-container">
+        <h2>We'd Love Your Feedback! 💬</h2>
+        <p>Tell us what you think about our platform. Your feedback helps us improve!</p>
+        
+        <form action="https://formsubmit.co/el/yayemu" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <textarea name="message" placeholder="Write your feedback here..." required></textarea>
+            <button type="submit">Send Feedback</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .feedback-section {
+        background: url('https://cliply.co/wp-content/uploads/2019/06/401906190_ITS_COMPLICATED_400px.gif') no-repeat center center/cover;
+        padding: 80px 10%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .feedback-container {
+        width: 100%;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    .feedback-container h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .feedback-container p {
+        font-size: 14px;
+        margin-bottom: 20px;
+        color: #555;
+    }
+
+    .feedback-container input,
+    .feedback-container textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .feedback-container input:focus,
+    .feedback-container textarea:focus {
+        border-color: #FF6B6B;
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        outline: none;
+    }
+
+    .feedback-container textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    .feedback-container button {
+        width: 100%;
+        background: #FF6B6B;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .feedback-container button:hover {
+        background: #D9534F;
+        transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .feedback-section {
+            padding: 50px 5%;
+        }
+    }
+</style>
+
+
+
+<br><br>
+
+<!-- Footer Section -->
+
+
+<div class="footer">
+    <div class="footer-container">
+        <!-- Logo & Brand Name -->
+        <div class="footer-brand">
+            <img src="1000070326-photoaidcom-cropped.png" alt="Brand Logo">
+            <span>StyleText X</span>
+        </div>
+
+        <!-- Footer Links Section -->
+        <div class="footer-links">
+            <div>
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#">Press</a>
+            </div>
+            <div>
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div>
+                <h3>Resources</h3>
+                <a href="#">Developers</a>
+                <a href="#">API Documentation</a>
+                <a href="#">Community</a>
+                <a href="#">Affiliate Program</a>
+            </div>
+            <div>
+                <h3>Social</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- Contact & Address -->
+        <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> 140 Tetulmari Sijua, Dhanbad, India</p>
+            <p><i class="fas fa-envelope"></i> theparallelbk@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 9798114322</p>
+        </div>
+
+        <!-- Copyright -->
+        <p class="footer-bottom">© 2025 StyleText X. All rights reserved.</p>
+    </div>
+</div>
+
+<style>
+    .footer {
+        background: #121212;
+        color: #ffffff;
+        padding: 50px 10%;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-container {
+        width: 100%;
+        max-width: 1200px;
+        text-align: center;
+    }
+
+    .footer-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .footer-brand img {
+        height: 50px;
+        transition: transform 0.5s;
+    }
+
+    .footer-brand img:hover {
+        transform: rotateY(360deg);
+    }
+
+    .footer-brand span {
+        font-size: 22px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .footer-links div {
+        width: 22%;
+        min-width: 150px;
+    }
+
+    .footer-links h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #FFD166;
+    }
+
+    .footer-links a {
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+        margin-bottom: 8px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .footer-links a:hover {
+        color: #FF6B6B;
+        transform: scale(1.05);
+    }
+
+    .footer-contact {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .footer-contact p {
+        margin: 5px 0;
+    }
+
+    .footer-contact i {
+        margin-right: 8px;
+        color: #FFD166;
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        font-size: 14px;
+        opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .footer-links {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links div {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+
+        
+    </script>
+
+</body>
+</html>

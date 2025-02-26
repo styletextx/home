@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleText X - Handwriting Tool</title>
+    <link rel="icon" type="image/png" href="1000070326-photoaidcom-cropped.png">
+
+    
+    <!-- Bootstrap & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2ab5a4, #2ab5a4);
+            color: #fff;
+            text-align: center;
+        }
+/* Full-Screen Menu */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.menu.active {
+    left: 0;
+}
+
+.menu a {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.menu .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #2ab5a4, #2ab5a4);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1001;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo img {
+    width: 50px;
+    height: auto;
+    object-fit: contain;
+}
+
+.brand-logo span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e4dfdf;
+}
+
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    display: block;
+    z-index: 1002;
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px;
+    background: linear-gradient(135deg, #2ab5a4, #2ab5a4);
+    color: white;
+}
+
+
+
+        /* Full-Screen Menu */
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.5s ease-in-out;
+            z-index: 1000;
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .menu .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #2ab5a4, #2ab5a4);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo img {
+            width: 50px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ /* Services Section */
+ .services {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00f7ff;
+            text-shadow: 0 0 10px #00f7ff;
+        }
+
+        .services-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background: white;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(42, 17, 153, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.4);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: black;
+            margin-bottom: 15px;
+        }
+
+        .service-btn {
+            text-decoration: none;
+            color: #121212;
+            background: #00f7ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .service-btn:hover {
+            background: #00c9c9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+        }
+
+
+
+
+
+
+
+ /* Hero Section */
+ .hero {
+            width: 100%;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #00f7ff, #ff00ff);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #bbb;
+            margin: 10px 0 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-btn {
+            text-decoration: none;
+            color: #121212;
+            background: #00f7ff;
+            padding: 12px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .hero-btn:hover {
+            background: #00c9c9;
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5);
+        }
+
+
+</style>
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+
+    <div id="preloader" style="position:fixed;width:100%;height:100%;background:#121212;display:flex;justify-content:center;align-items:center;z-index:9999"><div style="text-align:center"><div class="loader" style="width:50px;height:50px;border:5px solid rgba(255,255,255,0.3);border-top:5px solid #00f7ff;border-radius:50%;animation:spin 1s linear infinite"></div><h2 style="color:white;margin-top:15px;font-family:sans-serif;text-shadow:0 0 10px #00f7ff">StyleText X</h2></div></div><script>window.addEventListener("load",()=>{setTimeout(()=>{document.getElementById("preloader").style.display="none"},2000)});</script><style>@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}</style>
+
+
+
+
+
+
+
+
+    <!-- Full-Screen Menu -->
+    <div class="menu" id="menu">
+        <span class="close" onclick="toggleMenu()">&times;</span>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Why Use</a>
+        <a href="#">Contact</a>
+    </div>
+    
+    <!-- Navbar -->
+    
+    
+    <nav class="navbar">
+        <div class="brand-logo">
+            <img src="1000070326-photoaidcom-cropped.png" alt="Brand Logo">
+           <i><span>StyleText <b>X</b></span></i>
+        </div>
+        <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
+    </nav>
+    
+    
+    
+    
+    
+
+    
+
+
+
+
+
+
+
+
+     <!-- Hero Section -->
+    
+
+
+
+     <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>StyleText X</h1>
+            <p>Transform your handwriting into digital text with precision & style.</p>
+            <br>
+            <a href="#services" class="hero-btn">Explore Our Services</a>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services" id="services">
+            <h2>Our Services</h2>
+            <div class="services-container">
+
+                <div class="service-card">
+                    <div class="icon">✍️</div>
+                    <h3>Handwriting to Text</h3>
+                    <p>Convert your handwritten notes into clean digital text instantly.</p>
+                    <a href="handwriting-text.html" class="service-btn">Explore</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">🎨</div>
+                    <h3>Custom Fonts</h3>
+                    <p>Create a unique font from your handwriting and use it anywhere.</p>
+                    <a href="custom-fonts.html" class="service-btn">Explore</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon">📝</div>
+                    <h3>Digital Notes</h3>
+                    <p>Organize your handwritten notes digitally with AI-enhanced clarity.</p>
+                    <a href="digital-notes.html" class="service-btn">Explore</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<!-- Footer Section -->
+
+
+<div class="footer">
+    <div class="footer-container">
+        <!-- Logo & Brand Name -->
+        <div class="footer-brand">
+            <img src="1000070326-photoaidcom-cropped.png" alt="Brand Logo">
+            <span>StyleText X</span>
+        </div>
+
+        <!-- Footer Links Section -->
+        <div class="footer-links">
+            <div>
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#">Press</a>
+            </div>
+            <div>
+                <h3>Support</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div>
+                <h3>Resources</h3>
+                <a href="#">Developers</a>
+                <a href="#">API Documentation</a>
+                <a href="#">Community</a>
+                <a href="#">Affiliate Program</a>
+            </div>
+            <div>
+                <h3>Social</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+
+        <!-- Contact & Address -->
+        <div class="footer-contact">
+            <p><i class="fas fa-map-marker-alt"></i> 140 Tetulmari Sijua, Dhanbad, India</p>
+            <p><i class="fas fa-envelope"></i> theparallelbk@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +91 9798114322</p>
+        </div>
+
+        <!-- Copyright -->
+        <p class="footer-bottom">© 2025 StyleText X. All rights reserved.</p>
+    </div>
+</div>
+
+<style>
+    .footer {
+        background: #121212;
+        color: #ffffff;
+        padding: 50px 10%;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-container {
+        width: 100%;
+        max-width: 1200px;
+        text-align: center;
+    }
+
+    .footer-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .footer-brand img {
+        height: 50px;
+        transition: transform 0.5s;
+    }
+
+    .footer-brand img:hover {
+        transform: rotateY(360deg);
+    }
+
+    .footer-brand span {
+        font-size: 22px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+    }
+
+    .footer-links div {
+        width: 22%;
+        min-width: 150px;
+    }
+
+    .footer-links h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #FFD166;
+    }
+
+    .footer-links a {
+        display: block;
+        color: #ffffff;
+        text-decoration: none;
+        margin-bottom: 8px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .footer-links a:hover {
+        color: #FF6B6B;
+        transform: scale(1.05);
+    }
+
+    .footer-contact {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    .footer-contact p {
+        margin: 5px 0;
+    }
+
+    .footer-contact i {
+        margin-right: 8px;
+        color: #FFD166;
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        font-size: 14px;
+        opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .footer-links {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-links div {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+
+
+    
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+
+        
+    </script>
+
+</body>
+</html>
