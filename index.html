@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StyleText X - Handwriting Tool</title>
-    <link rel="icon" type="image/png" href="1000070326-photoaidcom-cropped.png">
+    <link rel="icon" type="image/png" href="blogs/1000070326-photoaidcom-cropped.png">
 
-
-    <meta name="google-site-verification" content="EGmf1sU1kDGpE1c-KIEHnz4--r4wTBba5irlvw-QJW0" />
     
     <!-- Bootstrap & FontAwesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -280,7 +278,7 @@
     
     <nav class="navbar">
         <div class="brand-logo">
-            <img src="1000070326-photoaidcom-cropped.png" alt="Brand Logo">
+            <img src="blogs/1000070326-photoaidcom-cropped.png" alt="Brand Logo">
            <i><span>StyleText <b>X</b></span></i>
         </div>
         <i class="fas fa-bars menu-icon" onclick="toggleMenu()"></i>
@@ -293,7 +291,7 @@
             <img src="https://cdn.pixabay.com/animation/2022/08/15/08/47/08-47-41-408_512.gif" alt="Hero Image">
             <h1>Welcome to Our Platform 🚀</h1>
             <p>Experience the next level of creativity and customization.</p>
-            <button>Get Started</button>
+            <a href="mainblogpage.html"><button>Get Started</button></a>
         </div>
     </div>
     
@@ -510,7 +508,7 @@
 
    <center>
     <div class="about-section">
-        <img src="1000070326-photoaidcom-cropped.png" alt="Logo">
+        <img src="blogs/1000070326-photoaidcom-cropped.png" alt="Logo">
         <h2>About Advanced Text Customizer</h2>
         <p>
             The Advanced Text Customizer is a powerful tool that allows users to customize text effortlessly. 
@@ -527,199 +525,127 @@
 
 
 
-<div class="blog-section">
-    <h2>📢 Latest Blogs & News</h2>
-    <div class="blog-container">
-        <!-- Blog Card 1 -->
-        <div class="blog-card">
-            <div class="blog-image">
-                <img src="https://media4.giphy.com/media/iBlgTxSS20NLdCxvDW/200w.gif?cid=6c09b952c3psfwwi70rssvwixdd3iwkc10rcgdfdalfmqqnm&ep=v1_gifs_search&rid=200w.gif&ct=g" alt="Blog Image">
-                <span class="blog-label">Technology</span>
-            </div>
-            <div class="blog-content">
-                <h3>🚀 New Features in Our Tool</h3>
-                <p>Explore the latest features we’ve added to enhance your experience.</p>
-                <div class="blog-info">
-                    <span>📅 Feb 15, 2025</span>
-                    <span>⏳ 20 min read</span>
-                </div>
-                <a href="#" class="read-more">Read More →</a>
-            </div>
-        </div>
 
-        <!-- Blog Card 2 -->
-        <div class="blog-card">
-            <div class="blog-image">
-                <img src="images (7).jpeg" alt="Blog Image">
-                <span class="blog-label">Coding</span>
-            </div>
-            <div class="blog-content">
-                <h3>💡 Why Use Our Tool?</h3>
-                <p>Discover why thousands of users are choosing our platform.</p>
-                <div class="blog-info">
-                    <span>📅 Feb 10, 2025</span>
-                    <span>⏳ 15 min read</span>
-                </div>
-                <a href="#" class="read-more">Read More →</a>
-            </div>
-        </div>
 
-        <!-- Blog Card 3 -->
-        <div class="blog-card">
-            <div class="blog-image">
-                <img src="images (7).jpeg" alt="Blog Image">
-                <span class="blog-label">Design</span>
-            </div>
-            <div class="blog-content">
-                <h3>🎨 Best Practices for Customization</h3>
-                <p>Learn how to get the most out of our tool’s customization options.</p>
-                <div class="blog-info">
-                    <span>📅 Feb 5, 2025</span>
-                    <span>⏳ 10 min read</span>
-                </div>
-                <a href="#" class="read-more">Read More →</a>
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
+
+
+
 
 <style>
+ 
+
+
+
+
+
+
+    /* Blog Section */
     .blog-section {
-        text-align: center;
-        padding: 60px 5%;
-        background: #2ab5a4;
-        color: white;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    .blog-section h2 {
-        font-size: 28px;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .blog-container {
+        width: 80%;
+        margin: auto;
+        padding: 40px 0;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
-        justify-content: center;
     }
 
     .blog-card {
-        background: skyblue;
-        color: black;
+        background: white;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
+        padding: 20px;
+        transition: 0.3s;
     }
 
     .blog-card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        transform: translateY(-5px);
     }
 
-    .blog-image {
-        position: relative;
-        overflow: hidden;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-    }
-
-    .blog-image img {
+    .blog-card img {
         width: 100%;
         height: 180px;
         object-fit: cover;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .blog-card:hover .blog-image img {
-        transform: scale(1.1);
-    }
-
-    .blog-label {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        background: skyblue;
-        color: black;
-        padding: 5px 10px;
-        font-size: 12px;
-        border-radius: 5px;
-        font-weight: bold;
+        border-radius: 15px;
     }
 
     .blog-content {
         padding: 15px;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
     }
 
-    .blog-content h3 {
-        font-size: 18px;
-        font-weight: bold;
+    .blog-content h2 {
+        color: #333;
+        font-size: 1.5em;
     }
 
-    .blog-info {
+    .blog-meta {
+        font-size: 0.9em;
+        color: #777;
         display: flex;
         justify-content: space-between;
-        font-size: 12px;
-        color: #666;
-        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
-    .read-more {
-        display: block;
+    .blog-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .learn-more, .share {
+        cursor: pointer;
+        color: #007bff;
         text-decoration: none;
-        color: black;
-        background: white;
-        padding: 10px;
-        text-align: center;
-        border-radius: 10px;
         font-weight: bold;
-        transition: background 0.3s;
-        margin-top: 10px;
     }
 
-    .read-more:hover {
-        background: grey;
-    }
 
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-        .blog-container {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (max-width: 768px) {
-        .blog-container {
-            grid-template-columns: 1fr;
-        }
-    }
 </style>
 
 
 
+
+
+
+<section class="blog-section">
+<div class="blog-card">
+    <img src="blogs\Yellow Black Futuristic Reaction Youtube Channel Art_20250228_094310_0000.png" alt="Blog 1">
+    <div class="blog-content">
+        <h2>Top 5 Handwritten Fonts for Websites & How to Use Them</h2>
+        <p class="blog-meta">20 min read | Fonts</p>
+        <div class="blog-actions">
+            <a href="blogs/blog3.html" class="learn-more">Read More</a>
+            <i class="fas fa-share-alt share"></i>
+        </div>
+    </div>
+</div>
+<div class="blog-card">
+    <img src="blogs\Yellow Black Futuristic Reaction Youtube Channel Art_20250228_094530_0000.png" alt="Blog 2">
+    <div class="blog-content">
+        <h2>How to Use Handwritten Fonts to Improve Website Aesthetics</h2>
+        <p class="blog-meta">15 min read | Design</p>
+        <div class="blog-actions">
+            <a href="blogs/blog4.html" class="learn-more">Read More</a>
+            <i class="fas fa-share-alt share"></i>
+        </div>
+    </div>
+</div>
+<div class="blog-card">
+    <img src="blogs\Yellow Black Futuristic Reaction Youtube Channel Art_20250228_094639_0000.png" alt="Blog 3">
+    <div class="blog-content">
+        <h2>The Psychology Behind Handwritten Fonts in Digital Content</h2>
+        <p class="blog-meta">10 min read | Digital Content</p>
+        <div class="blog-actions">
+            <a href="blogs/blog5.html" class="learn-more">Read More</a>
+            <i class="fas fa-share-alt share"></i>
+        </div>
+    </div>
+</div>
+</section>
 
 
 
@@ -736,7 +662,7 @@
         <h2>We'd Love Your Feedback! 💬</h2>
         <p>Tell us what you think about our platform. Your feedback helps us improve!</p>
         
-        <form action="https://formsubmit.co/el/yayemu" method="POST">
+        <form action="https://formsubmit.co/theparallelbk@gmail.com" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <textarea name="message" placeholder="Write your feedback here..." required></textarea>
             <button type="submit">Send Feedback</button>
@@ -746,7 +672,7 @@
 
 <style>
     .feedback-section {
-        background: url('https://cliply.co/wp-content/uploads/2019/06/401906190_ITS_COMPLICATED_400px.gif') no-repeat center center/cover;
+        background: url('https://lottiefiles.com/free-animation/isometric-people-working-with-technology-iFNZBAJZER') no-repeat center center/cover;
         padding: 80px 10%;
         display: flex;
         justify-content: center;
@@ -845,7 +771,7 @@
     <div class="footer-container">
         <!-- Logo & Brand Name -->
         <div class="footer-brand">
-            <img src="1000070326-photoaidcom-cropped.png" alt="Brand Logo">
+            <img src="blogs/1000070326-photoaidcom-cropped.png" alt="Brand Logo">
             <span>StyleText X</span>
         </div>
 
@@ -853,23 +779,23 @@
         <div class="footer-links">
             <div>
                 <h3>Company</h3>
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Blog</a>
-                <a href="#">Press</a>
+                <a href="contact.html">About Us</a>
+                <a href="service.html">Services</a>
+                <a href="mainblogpage.html">Blog</a>
+                <a href="">Press</a>
             </div>
             <div>
                 <h3>Support</h3>
-                <a href="#">Help Center</a>
-                <a href="#">Contact Us</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <a href="contact.html">Help Center</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="privacypolicy.html">Privacy Policy</a>
+                <a href="privacypolicy.html">Terms of Service</a>
             </div>
             <div>
                 <h3>Resources</h3>
-                <a href="#">Developers</a>
-                <a href="#">API Documentation</a>
-                <a href="#">Community</a>
+                <a href="mailto:theparallelbk@gmail.com">Developers</a>
+                <a href="">API Documentation</a>
+                <a href="">Community</a>
                 <a href="#">Affiliate Program</a>
             </div>
             <div>
@@ -883,7 +809,7 @@
 
         <!-- Contact & Address -->
         <div class="footer-contact">
-            <p><i class="fas fa-map-marker-alt"></i> 140 Tetulmari Sijua, Dhanbad, India</p>
+            <p><i class="fas fa-map-marker-alt"></i> Dhanbad, JH - India</p>
             <p><i class="fas fa-envelope"></i> theparallelbk@gmail.com</p>
             <p><i class="fas fa-phone"></i> +91 9798114322</p>
         </div>
